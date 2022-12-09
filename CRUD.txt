@@ -1,0 +1,72 @@
+ORDER BY 	DESC      	ASC
+сортировка по 	убыванию	возрастанию
+
+SELECT * 
+FROM Products 
+WHERE Price >=20 AND Price <=50
+ORDER BY Price DESC
+или
+SELECT * 
+FROM Products 
+WHERE Price BETWEEN 20 AND 50
+ORDER BY Price DESC
+
+
+SELECT * 
+FROM Customers 
+WHERE Country = "Germany" OR Country = "UK" OR Country = "USA"
+или
+SELECT * 
+FROM Customers 
+WHERE Country IN ( "Germany", "UK", "USA")
+
+-- ограничить по кол-ву самых дешевых товаров
+SELECT * 
+FROM Products
+ORDER BY Price ASC
+LIMIT 5
+
+-- вывести цену в другой валюте
+-- 1 EURO = 143 JPY
+SELECT 
+    ProductName, 
+    Price AS Price_eur, 
+    Price * 143 AS Price_jpy
+FROM Products
+
+-- удаление
+DELETE FROM Customers
+WHERE CustomerID =1
+
+DELETE FROM Customers
+WHERE CustomerID IN (3, 5, 10)
+
+-- изменение SET
+UPDATE Customers
+SET CustomerName = "Slava Zh", ContactName = "SL101"
+WHERE CustomerID = 2
+
+UPDATE Customers
+SET ContactName = ""
+WHERE NOT Country = "Germany"
+
+-- Задача
+-- изменить ID-категории на значение 33 для всех товаров с ценой в диапазоне 10-100
+UPDATE Products
+SET CategoryID = 33
+WHERE Price BETWEEN 10 AND 100
+
+-- создание 
+INSERT INTO Categories
+VALUES (9, "test", "...")
+
+
+-- агрегация 
+COUNT - общее кол-во строк
+SUM - сумирует
+
+SELECT COUNT(*) AS TOTAL_PRODUCTS
+FROM Products
+
+SELECT SUM(Price) AS TOTAL_PRICE
+FROM Products
