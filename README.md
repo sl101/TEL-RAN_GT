@@ -1,5 +1,7 @@
-# TEL-RAN_General Technologies
+# TEL-RAN
 
-- [homeworks](https://sl101.github.io/TEL-RAN_GT/homeworks/)
-- [lessons](https://sl101.github.io/TEL-RAN_GT/lessons/)
-- [sourse](https://sl101.github.io/TEL-RAN_GT/sourse/)
+## General Technologies
+
+- [homeworks](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/)
+- [lessons](https://github.com/sl101/TEL-RAN_GT/tree/main/lessons/)
+- [sourse](https://github.com/sl101/TEL-RAN_GT/tree/main/sourse/)
