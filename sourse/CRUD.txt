@@ -70,3 +70,425 @@ FROM Products
 
 SELECT SUM(Price) AS TOTAL_PRICE
 FROM Products
+==================================================
+--SELECT поля_таблиц FROM список_таблиц
+--WHERE условия_на_ограничения_строк
+
+## логические операторы ---------------------------------------
+--[логический_оператор другое_условия_на_ограничения_строк];
+-- = <> != < > >= <= not or and
+
+## специальные опеаторы --------------------------------------
+--IS [NOT] NULL — позволяет узнать равно ли проверяемое значение NULL.
+--[NOT] BETWEEN min AND max — позволяет узнать расположено ли проверяемое значение столбца в интервале между min и max.
+--[NOT] IN — позволяет узнать входит ли проверяемое значение столбца в список определённых значений.
+--[NOT] LIKE шаблон — позволяет узнать соответствует ли строка определённому шаблону.
+
+## типы данных -----------------------------------------
+--CHAR(size) - Строки фиксированной длиной (могут содержать буквы, цифры и специальные символы). Фиксированный размер указан в скобках. Можно записать до 255 символов
+--VARCHAR(size) - Может хранить не более 255 символов.
+--INT(M) или INTEGER(M) - Целое число. Может быть объявлено положительным с помощью ключевого слова UNSIGNED, тогда элементам столбца нельзя будет присвоить отрицательное значение. 
+--NUMBER/NUMERIC - числовые данные
+
+## Создание таблицы --------------------------------------------------
+Для создания таблицы используется оператор CREATE TABLE. Его базовый синтаксис имеет следующий вид:
+CREATE TABLE имя_таблицы (
+     колонка_1 тип_данных,
+    колонка_2 тип_данных,
+    ...
+    колонка_n тип_данных,
+);
+
+## Ограничения при создании таблицы ---------------------------------------
+
+NOT NULL - Значение в поле не может быть null
+UNIQUE - Значение в поле должно быть уникальным
+PRIMARY KEY - NOT NULL + UNIQUE 
+CHECK - Соответствует какому-либо условию
+
+## автозаполнение --------------------------
+
+AUTO_INCREMENT/autoincrement позволяет создавать уникальный номер автоматически, когда новая запись вставляется в таблицу. Часто это поле основного ключа, которое мы хотели бы создать автоматически каждый раз, когда будет вставлена новая запись.
+
+
+## Добавление данных, оператор INSERT --------------------------------------
+
+Для добавления новых записей в таблицу предназначен оператор INSERT.
+
+Общая структура запроса с оператором INSERT:
+
+INSERT INTO имя_таблицы (поле_таблицы, ...)
+VALUES (значение_поля_таблицы, ...)
+
+Insert into goods (good_id, good_name, type)
+	values(1, "table", 3);
+
+
+## Удаление таблицы --------------------------------------------------
+Удаление таблицы производится при помощи оператора DROP TABLE.
+DROP TABLE имя_таблицы;
+
+
+
+create table users (
+	user_id integer primary key autoincrement,
+	first_name varchar(60) not null,
+	last_name varchar(60) not null,
+	balance integer
+); 
+
+-- create table users(id integer, name varchar (255), age integer);
+-- drop table users;
+
+-- create table goods (good_id integer, good_name varchar (100), type integer);
+-- Insert into goods (good_id, good_name, type)
+-- 	values(1, "table", 3);
+
+-- create table artists(
+-- 	id integer primary key,
+-- 	first_name varchar(60) not null,
+--	last_name varchar(100) not null,
+--	gender char(1) check (gender in ("f", "m"))
+-- );
+
+--create table users (
+--	user_id integer primary key autoincrement,
+--	first_name varchar(60) not null,
+--	last_name varchar(60) not null,
+--	balance integer
+--); 
+
+-- Insert into users (first_name, last_name, balance)
+-- 	values("Slava", "Zhevaha", 3000);
+
+
+task_2
+=========================================
+создать таблицу Employees с полями 
+	employee_id число,
+    , first_name     текст
+    , last_name      текст
+    , email          текст
+    , phone   текст
+    , job_id         текст
+    , salary         число
+    , commission_pct число
+    , manager_id     число
+    , department_id  число
+
+
+create table Employees(
+	id integer,
+	first_name varchar(100),
+	last_name varchar(100),
+    	email varchar(100),
+ 	phone varchar(100),
+     	job_id varchar(100),
+    	salary integer,
+    	commission_pct integer,
+  	manager_id integer,
+   	department_id integer
+);
+===============================
+task_3
+SELECT * from Employees
+where job_id = 'FI_ACCOUNT'
+
+=============================
+task_4
+вывести всех сотрудников, которые зарабатывают меньше 12000
+
+SELECT * from Employees
+where salary < 12000
+
+=============================
+task_5
+вывести сотрудников из департаментов 70, 80, 100
+
+SELECT * from Employees
+where department_id in ( 70, 80, 100)
+
+=============================
+task_6
+вывести всех сотрудников, у которых имя начинается на D
+
+SELECT * from Employees
+where first_name like 'D%'
+
+=============================
+task_7
+вывести сотрудников, у которых employee_id от 108 до 143
+
+SELECT * from Employees
+where id BETWEEN 108 AND 143
+
+=============================
+task_8
+вывести имя и фамилию тех сотрудников, у которых номер телефона начинается с 590
+
+SELECT 
+	first_name, 
+	last_name      
+FROM Employees
+WHERE phone LIKE "590%"
+
+=============================
+task_9
+вывести сотрудников, у которых зарплата больше 1000, job_id равно IT_PROG и номер телефона начинается с 590
+
+SELECT * from Employees
+WHERE salary > 1000 
+	AND job_id = "IT_PROG" 
+	AND phone LIKE "590%"
+
+=============================
+task_10
+вывести имя, фамилию и зарплату тех сотрудников, у которых зарплата в интервале [8000; 10000] и у них commission_pct не null
+
+SELECT	first_name, 
+	last_name,
+	salary 
+FROM Employees      
+WHERE salary BETWEEN 8000 AND 10000
+	AND commission_pct is NOT NULL
+
+=============================
+task_11
+Создайте таблицу goods:
+	id первичный ключ автоинкремент
+	title строка (128), не пустое значение 
+	quantity строка (128) 
+	price целое число, не пустое значение
+
+create table goods(
+	id integer primary key autoincrement,
+	title varchar(128) not null,
+	quantity varchar(128),
+	price integer not null
+);
+
+=============================
+task_12
+заполнить 10 значений
+
+INSERT INTO goods (title, quantity, price )
+	values("laptop", 5, 1500);
+INSERT INTO goods (title, quantity, price )
+	values("computer", 2, 2000);
+INSERT INTO goods (title, quantity, price ) 
+	values("mouse", 15, 70);
+INSERT INTO goods (title, quantity, price )
+	values("monitor", 12, 700);
+INSERT INTO goods (title, quantity, price )
+	values("router", 24, 350);
+INSERT INTO goods (title, quantity, price )
+	values("phone", 14, 650);
+INSERT INTO goods (title, quantity, price )
+	values("watch",10, 800);
+INSERT INTO goods (title, quantity, price )
+	values("e-book", 5, 170);
+INSERT INTO goods (title, quantity, price )
+	values("powerbank", 7, 300);
+INSERT INTO goods (title, quantity, price )
+	values("сharger", 9, 140);
+
+=============================
+task_13
+Найдите товары дешевле 1000
+SELECT *
+FROM goods
+WHERE price < 1000;
+
+=============================
+task_14
+Найдите товары, начинающиеся на M
+SELECT *
+FROM goods
+WHERE title LIKE "m%"
+
+=============================
+task_15
+Найдите товары, с количеством равно 10 и с ценой больше 200
+SELECT *
+FROM goods
+WHERE quantity = 10 
+	AND price > 200
+
+=============================
+task_16
+Найдите товары с нулевым количеством  
+SELECT *
+FROM goods
+WHERE quantity is null 
+
+=============================
+task_17
+Найдите товары, у которых цена в интервале [100, 1500]
+SELECT *
+FROM goods
+WHERE price BETWEEN 100 AND 1500
+
+=============================
+task_18
+1.	Создать таблицу staff с полями:
+•	id – integer - уникальное значение, не null, с автозаполнением 
+•	firstname - varchar - не null
+•	lastname - varchar - не null
+•	position - varchar
+•	age - integer - от 0 до 110
+•	has_child – либо Y, либо N
+•	username - varchar - уникальный
+
+
+CREATE table staff(
+	id integer primary key autoincrement,
+	firstname varchar(60) not null,
+	lastname varchar(60) not null,
+	position varchar(100),
+	age integer check ( age between 0 and 110 ),
+	has_child char(1) check ( has_child in ('Y' , 'N')),
+	username varchar(100) UNIQUE
+);
+
+=============================
+task_19
+Используя файл staff.txt заполнить таблицу,
+
+SELECT * FROM staff
+
+=============================
+task_20
+Найти список работников, которым больше 30 лет и у них нет детей,
+
+SELECT * FROM staff 
+WHERE age > 30 
+	AND has_child = "N"
+
+=============================
+task_21
+Найти список работников, у которых средний уровень должности и им больше 20 лет,
+
+SELECT * FROM staff 
+WHERE age > 20 
+	AND position LIKE "Middle%"
+
+=============================
+task_22
+Найти список работников, у которых имя начинается с буквы А и у них нет детей,
+
+SELECT * FROM staff 
+WHERE firstname LIKE "A%"
+	AND has_child = "N"
+
+=============================
+task_23
+Найти список работников, которым меньше 25, у них младший уровень должности и у них нет детей,
+
+SELECT * FROM staff 
+WHERE age < 25
+	AND has_child = "N"
+	AND position LIKE "Junior%"
+
+=============================
+task_24
+Найти список работников с именем Анна, у которых уровень должности либо средний, либо старший,
+
+SELECT * FROM staff 
+WHERE firstname = "Anna"
+	AND (position LIKE "Middle%" OR position LIKE "Senior %")
+или 
+SELECT * FROM staff 
+WHERE firstname = "Anna"
+	AND position NOT LIKE "Junior%"
+
+=============================
+task_25
+Найти всех блогеров,
+
+SELECT * FROM staff 
+WHERE position LIKE "%Blogger"
+
+=============================
+task_26
+Найти всех преподавателей, у которых есть дети,
+
+SELECT * FROM staff 
+WHERE has_child = "Y"
+	AND position LIKE "%Teacher"
+
+=============================
+task_27
+Найти всех дизайнеров, которым меньше 40,
+
+SELECT * FROM staff 
+WHERE age < 40 
+	AND position LIKE "%Designer"
+
+=============================
+task_28
+Найти всех Томов со средним уровнем должности,
+
+SELECT * FROM staff 
+WHERE firstname = "Tom"
+	AND position LIKE "Middle%"
+
+=============================
+task_29
+Найти всех с фамилией Лоренц у который нет детей, и они молодые работники (младший уровень должности),
+
+SELECT * FROM staff 
+WHERE lastname = "Lorentz"
+	AND has_child = "N"
+	AND position LIKE "Junior%"
+
+12.22.2022 ========================================================
+Работа с MySQL Workbench:
+-- создание базы
+create database FE37_38;
+
+-- начало работы с базой 
+use FE37_38;
+
+create table products(
+	id integer primary key auto_increment,
+    title varchar(128),
+    quantity integer check (quantity between 0 and 10)
+);
+
+insert into products (title, quantity)
+values ('Apple', 3), 
+		('Orange', 2), 
+		('Banana', 10), 
+		('Pineapple', 7), 
+		('Kiwi', 4);
+
+-- добавление поля в таблицу
+alter table products
+add price integer default 0;
+-- если не поставить значение по умолчанию, то будет значение null
+
+-- numeric (precision, scale)
+-- precision  max 65 - кличество цифр в числе
+-- scale max кол-во цифр после запятой
+-- по умолчанию значение - 0
+
+-- изменить тип данных в поле
+alter table products
+modify column price numeric(8, 2);
+
+-- переименовать поле
+alter table products
+change price item_price integer;
+
+-- удаление 
+alter table products
+drop column item_price;
+
+-- изменить данные в поле 
+update students
+set avg_mark = avg_mark*2;
+
+update students
+set lastname = "Сидоров"
+where  firstname = "Олег" and  lastname = "Петров";
+
