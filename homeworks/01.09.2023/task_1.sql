@@ -63,8 +63,8 @@ where lastname like "A%" and length(lastname) >= 3;
 
 -- В таблице оставить тех студентов, которые (проходят Х предмет и оценка выше 4) и тех 
 -- студентов (которые учатся 7-10 классах и у них оценки ниже 3).
-select * from students
-where (subject = "math" and mark > 4) or (class between 7 and 10 and mark < 3);
+delete from students
+where not ((subject = "math" and mark > 4) or (class between 7 and 10 and mark < 3));
 
 -- Удалить таблицу.
 drop table students;
