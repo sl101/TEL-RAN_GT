@@ -1,5 +1,7 @@
 ## GT lessons
 
+- [01.19.2023](hhw_tasksttps://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/01.19.2023/hw_tasks.sql)
+
 - [01.14.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/01.14.2023/jobs_table.sql)
 
 - [01.09.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/01.09.2023/task_1.sql)

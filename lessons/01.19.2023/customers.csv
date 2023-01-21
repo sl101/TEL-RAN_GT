@@ -1,0 +1,44 @@
+customer_id,age,order_name,delivery_status,full_name,sum_price
+1,20,"math_book, pen",0,"Kris Krill",9000
+2,50,"notebook, pen, drawing_block",0,"Kristin Brooks",4500
+3,55,"pencil, sharpener",1,"Kristina Livshits",2440
+4,43,"math_book, eng_book, phil_book",1,"Kristina Nunez",18000
+5,19,pencil,1,"Kurtis Parham",450
+6,22,"pen, sharpener",1,"Lai Kurtich",1200
+7,21,"notebook, pen",1,"Lakia Fitzen",3500
+8,34,"colored papers, pencil",1,"Landon Neville",2550
+9,32,"pen, sharpener, rubber",1,"Latoria Siprasoeuth",4600
+10,76,"watercolors, drawing_block",1,"Laurice Goffredo",1200
+12,19,"colored papers",0,"Laurice Karl",2250
+13,34,"pen, math_book",0,"Laveta Wida",1170
+14,45,"pencil, sharpener, notebook",1,"Lecia Alvino",9100
+15,55,"eng_book, notebook",1,"Lenore Sullivan",175
+17,54,"watercolors, drawing_block, brushes",0,"Lexie Magee",1750
+18,76,"brushes, pencil, notebook",0,"Li Robleto",1325
+19,78,"brushes, watercolor",0,"Libby Krauss",2300
+20,65,"eng_book, pen, rubber",0,"Lillia Talbott",600
+21,54,"notebook, pen, drawing_block",1,"Linda Merida",7700
+22,34,flag,1,"Lisa Hughes",5450
+23,23,"brushes, watercolor",1,"Lloyd Shackley",4370
+25,74,notepad,1,"Lonnie Colby",3375
+26,24,"pencil, sharpener",1,"Lorilee Bautista",3900
+27,54,notepad,1,"Loris Thibadeau",4950
+28,59,flag,0,"Lorita Koenig",4425
+29,47,notepad,1,"Love Whistlehunt",5500
+30,23,"colored papers",1,"Lovie Ritacco",3800
+31,26,flag,0,"Loyd Huckeba",300
+33,38,"pencil, sharpener, rubber",1,"Luana Berends",2825
+34,36,"notepad, pen",0,"Lucas Summerill",2185
+35,80,sharpener,1,"Luciano Lingenfelter",6100
+36,58,"brushes, watercolor",1,"Lucila Heck",1688
+37,23,notepad,1,"Luigi Nored",1900
+38,38,flag,1,"Luis Pothoven",2475
+40,59,"colored papers, pencil",1,"Mable Ballard",2850
+41,71,notepad,1,"Maia Leggett",1900
+42,58,"rubber, pencil",1,"Marc Domanski",5030
+43,80,"brushes, watercolor",1,"Marco Slivka",2680
+44,82,"pencil, sharpener, pen",1,"Margaret Bennett",1700
+46,58,"notepad, flag",1,"Markita Larner",605
+47,38,"colored papers, notebook",1,"Martha Baker",1030
+48,27,"pencil, sharpener",0,"Marvis Chou",2280
+49,28,"brushes, watercolor",0,"Mary Barnes",1655

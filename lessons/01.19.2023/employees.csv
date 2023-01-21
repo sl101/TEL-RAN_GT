@@ -1,0 +1,34 @@
+employee_id,first_name,last_name,email,salary,department
+1,Steven,King,SKING,24000,Sales
+2,Neena,Kochhar,NKOCHHAR,17000,Sales
+3,Lex,"De Haan",LDEHAAN,17000,Sales
+4,Alexander,Hunold,AHUNOLD,9000,Finance
+5,Bruce,Ernst,BERNST,6000,Finance
+6,Valli,Pataballa,VPATABAL,4800,Finance
+7,Diana,Lorentz,DIANALO,8800,Finance
+8,Nancy,Greenberg,NGREENBE,12008,Shipping
+9,Daniel,Faviet,DFAVIET,9000,Shipping
+10,"Jose Manuel",Urman,JMURMAN,7800,Shipping
+11,Luis,Popp,LPOPP,6900,Shipping
+12,Den,Raphaely,DRAPHEAL,11000,Marketing
+13,Alexander,Khoo,AKHOO,3100,Marketing
+14,Shelli,Baida,SBAIDA,2900,Marketing
+15,Sigal,Tobias,STOBIAS,2800,Marketing
+16,Matthew,Weiss,MWEISS,8000,"Human Resources"
+17,Adam,Fripp,AFRIPP,8200,"Human Resources"
+18,Payam,Kaufling,PKAUFLIN,7900,"Human Resources"
+19,Shanta,Vollman,SVOLLMAN,6500,"Human Resources"
+20,Kevin,Mourgos,KMOURGOS,5800,"Human Resources"
+21,Julia,Nayer,JNAYER,3200,"Human Resources"
+22,Adam,Markle,SMARKLE,2200,"Human Resources"
+23,Laura,Bissot,LBISSOT,3300,"Human Resources"
+24,Mozhe,Atkinson,MATKINSO,2800,"Human Resources"
+25,Joshua,Patel,JPATEL,2500,"Human Resources"
+26,Trenna,Rajs,TRAJS,3500,"Human Resources"
+27,John,Russell,JRUSSEL,14000,IT
+28,Karen,Partners,KPARTNER,13500,IT
+29,Alberto,Errazuriz,AERRAZUR,12000,IT
+30,Gerald,Cambrault,GCAMBRAU,11000,IT
+31,Eleni,Zlotkey,EZLOTKEY,10500,IT
+32,Adam,Vargas,PVARGAS,2500,"Human Resources"
+33,Laura,Errazuriz,AERRAZUR,12000,IT
