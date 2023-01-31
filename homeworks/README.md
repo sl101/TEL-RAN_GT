@@ -1,4 +1,6 @@
-## GT lessons
+## GT Homeworks
+
+- [01.26.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/01.26.2023/hw_01.26.sql)
 
 - [01.19.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/01.19.2023/hw_tasks.sql)
 
