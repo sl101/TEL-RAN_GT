@@ -27,8 +27,35 @@ case
     when department = 'IT'  then salary + salary*35/100
 end;
 
+-- 3.	Используем таблицу customers.
+-- Создать поле sale integer.
 alter table customers
-add sale integer
+add sale integer;
+
+-- 4.	Заполнить поле sale:
+-- Если sum_price < 5000 скидка null, если больше/равно 5000 и меньше 10000, скидка 5, если больше/равно 10000, скидка 10.
+update customers
+set sale = 
+case
+	when sum_price < 5000 then null
+	when sum_price < 10000 then 5
+    else 10
+end;
+
+-- 5.	Создать поле final_price numeric(7, 2). 
+-- Заполнить поле соответственно сделав скидки.
+
+alter table customers
+add final_price numeric(7, 2);
+
+update customers
+set final_price = coalesce(sum_price - sum_price * sale / 100, sum_price);
+
+-- 6.	В order_name поменять math_book на mathematics_book, eng_book на english_book.
+update customers
+set order_name = replace(order_name, 'math_book', 'mathematics_book'),
+order_name = replace(order_name, 'eng_book', 'english_book');
+
 
 select * from employees;
 select * from customers;

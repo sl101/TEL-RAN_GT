@@ -162,7 +162,7 @@ select right("apple", 2);
 select substring("IPhone 14  pro", 8 );
 select substring("IPhone 14  pro", 8, 2);
 
--- REPLACE(search, find, replace): заменяет в строке find подстроку search на подстроку replace. 
+-- REPLACE(search, find, replace): заменяет в строке search подстроку find на подстроку replace. 
 -- Первый параметр функции - строка, второй - подстрока, которую надо заменить, а третий - подстрока, на которую надо заменить:
 select replace("IPhone 10  pro", "10", "14" );
 

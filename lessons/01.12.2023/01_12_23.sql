@@ -247,9 +247,29 @@ where sum_price > 12000 and delivery_status = 0;
 
 -- 19.	Удалить записи тех покупателей, у которых имя начинается на букву L, а фамилия заканчивается на O.
 delete from customers
-where full_name = 'l&o';
+where full_name like 'l%o';
 
 -- 20.	Сделать скидку на 10% для тех покупателей, у которых статус заказа 0.
 update customers
 set sum_price = sum_price - sum_price/10
 where delivery_status = 0;
+
+-- 21.	Сделать скидку на столько процентов, сколько лет покупателю, если ему меньше 30.
+update customers
+set sum_price = sum_price - sum_price * age / 100
+where age < 30;
+
+-- 22.	Удалить записи тех покупателей, у которых статус доставки 0.
+delete from customers
+where  delivery_status = 0;
+
+-- 23.	Увеличить сумму заказа на 5% для тех покупателей, которые заказывали цветные бумаги.
+select * from customers
+where order_name like '%colored papers%';
+
+update customers
+set sum_price = sum_price + sum_price * 5 / 100
+where order_name like '%colored papers%';
+
+-- 24.	Удалить таблицу
+drop table customers;
