@@ -237,13 +237,12 @@ from users;
 	-- имя_юзера
 	-- сумма донатов
 
-select max(t1.amount) max_donat,
-	t2.fullname,
-    t1.amount
+select sum(t1.amount) total_donat,
+	t2.fullname
 from danations t1
 left join users t2 on t1.donator_id=t2.user_id
-group by t1.danation_id
-order by max_donat desc
+group by t1.donator_id
+order by total_donat desc
 limit 1;
 
 -- вывести ТОП-3 юзеров по сумме собранных донатов
@@ -256,7 +255,9 @@ select
 from danations t1
 left join streams t2 on t1.stream_id = t2.stream_id
 left join users t3 on t2.user_id = t3.user_id
-group by t2.stream_id;
+group by t2.stream_id
+order by total_sum_donat desc
+limit 3;
 
 select * from users;
 select * from streams;
