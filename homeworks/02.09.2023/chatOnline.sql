@@ -32,6 +32,7 @@ create table if not exists messages(
 	created_at datetime default current_timestamp,
     user_id integer,
 	chat_id integer,
+    text varchar (255),
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (chat_id) REFERENCES chats(chat_id)
 );
