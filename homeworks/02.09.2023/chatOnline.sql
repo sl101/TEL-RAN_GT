@@ -30,10 +30,13 @@ create table if not exists chats(
 create table if not exists messages(
     message_id integer primary key auto_increment,
 	created_at datetime default current_timestamp,
-    user_id integer,
-	chat_id integer,
+    autor_id integer,
+    recipient_id integer,
+    --	chat_id integer,
+    is_removed BOOL default false,
     text varchar (255),
-    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (autor_id) REFERENCES users(user_id),
+    FOREIGN KEY (recipient_id) REFERENCES users(chat_id),
     FOREIGN KEY (chat_id) REFERENCES chats(chat_id)
 );
 

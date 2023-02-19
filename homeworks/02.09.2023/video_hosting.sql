@@ -185,7 +185,7 @@ where stream_id = 5
 group by value
 order by value desc;
 
-create table if not exists danations (
+create table if not exists donations (
    danation_id integer primary key auto_increment,
    donator_id integer,
    stream_id integer,
@@ -197,7 +197,7 @@ create table if not exists danations (
 );
 
 -- добавить донаты в к-ве десяти штук с произвольными суммами к разным стримам
-    INSERT INTO danations(donator_id, stream_id, amount, comment) 
+    INSERT INTO donations(donator_id, stream_id, amount, comment) 
 	VALUES 
     (1, 2, 44, "Cool"),
     (2, 3, 500, "Cool"),
@@ -224,7 +224,7 @@ where user_id in (2, 4);
 
 select 
 avg(amount) as avg_amount
-from danations ;
+from donations ;
 
 select distinct country 
 from users;
@@ -239,7 +239,7 @@ from users;
 
 select sum(t1.amount) total_donat,
 	t2.fullname
-from danations t1
+from donations t1
 left join users t2 on t1.donator_id=t2.user_id
 group by t1.donator_id
 order by total_donat desc
@@ -252,17 +252,17 @@ limit 1;
 select
 	t3.fullname,
     sum(t1.amount) as total_sum_donat
-from danations t1
+from donations t1
 left join streams t2 on t1.stream_id = t2.stream_id
 left join users t3 on t2.user_id = t3.user_id
-group by t2.stream_id
+group by t3.user_id
 order by total_sum_donat desc
 limit 3;
 
 select * from users;
 select * from streams;
 select * from reactions;
-select * from danations;
+select * from donations;
 
 -- delete from reactions
 -- where reaction_id >5;
