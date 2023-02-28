@@ -1,5 +1,7 @@
 ## GT Homeworks
 
+- [02.23.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.23.2023/hw_transactions.js)
+
 - [02.16.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.16.2023/hw_chat.sql)
 
 - [02.02.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.02.2023/hw.sql)
