@@ -1,9 +1,10 @@
 // Напишите следующие запросы к MongoDB (БД "bank"):
 
 // (1) найти ко-во завершенных транзакций не в евро на сумму более 100
-db.transactions.find({
-	amount: { $gte: 100 },
+db.transactions.countDocuments({
+	is_completed: true,
 	currency: { $ne: 'eur' },
+	amount: { $gt: 100 },
 });
 // (2) для всех пользователей не из Китая и не из Испании увеличить баланс на 20%
 db.users.updateMany(
@@ -14,6 +15,11 @@ db.users.updateMany(
 db.users.updateMany(
 	{ $or: [{ balance: { $gt: 0 } }, { is_premium: true }] },
 	{ $set: { is_blocked: false } }
+);
+// или
+db.users.updateMany(
+	{ $or: [{ balance: { $gt: 0 } }, { is_premium: true }] },
+	{ $unset: { is_blocked: null } }
 );
 // (4) найти пользователей из Китая, которые заблокированы и имеют нулевой баланс
 db.users.find({
