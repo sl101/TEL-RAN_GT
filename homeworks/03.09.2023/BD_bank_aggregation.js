@@ -17,11 +17,21 @@ db.transactions.aggregate([
 		},
 	},
 	{ $sort: { amount: 1 } },
-	{ $project: { amount: 1, _id: 0 } },
+	{
+		$project: {
+			_id: 0,
+			amount_usd: { $multiply: [$amount, 1.05] },
+		},
+	},
 ]);
 
 // (2) вывести количество USD-транзакций из 'China'
 db.transactions.aggregate([
+	{
+		$match: {
+			currency: 'usd',
+		},
+	},
 	{
 		$lookup: {
 			from: 'users',
@@ -32,11 +42,10 @@ db.transactions.aggregate([
 	},
 	{
 		$match: {
-			currency: 'usd',
 			'sender.country': 'China',
 		},
 	},
-	{ $count: 'users_count' },
+	{ $count: 'total_chinese_txs' },
 ]);
 
 // (3) вывести три самых больших транзакции в 'usd'
@@ -49,6 +58,11 @@ db.transactions.aggregate([
 // (4) вывести всех незаблокированных пользователей, у которых есть завершенные (is_completed) транзакции от 10 usd
 db.users.aggregate([
 	{
+		$match: {
+			is_blocked: { $ne: true },
+		},
+	},
+	{
 		$lookup: {
 			from: 'transactions',
 			localField: 'id',
@@ -57,11 +71,27 @@ db.users.aggregate([
 		},
 	},
 	{
+		$lookup: {
+			from: 'transactions',
+			localField: 'id',
+			foreignField: 'recipient_id',
+			as: 'recipiended_transaction',
+		},
+	},
+	{
 		$match: {
-			is_blocked: { $ne: true },
-			'sended_transaction.is_completed': true,
-			'sended_transaction.amount': { $gte: 10 },
-			'sended_transaction.currency': 'eur',
+			$or: [
+				{
+					'sended_transaction.is_completed': true,
+					'sended_transaction.amount': { $gte: 10 },
+					'sended_transaction.currency': 'usd',
+				},
+				{
+					'recipiended_transaction.is_completed': true,
+					'recipiended_transaction.amount': { $gte: 10 },
+					'recipiended_transaction.currency': 'usd',
+				},
+			],
 		},
 	},
 ]);
