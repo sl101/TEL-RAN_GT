@@ -122,3 +122,11 @@ db.users.aggregate([
 		},
 	},
 ]);
+
+// =======================================
+
+// our_commision_eur: {
+// 	$sum: {
+// 		$multiply: ['$amount', 0.135];
+// 	}
+// }
