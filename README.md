@@ -1,4 +1,4 @@
-# TEL-RAN
+# TEL-RAN School
 
 ## General Technologies
 
