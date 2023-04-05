@@ -1,10 +1,12 @@
 ## GT Homeworks
 
-- [03.09.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/03.09.2023/BD_bank_aggregation.js)
+- [03.30.2023 => DB schema](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/03.30.2023/DB_schema.js)
 
-- [03.02.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/03.02.2023/BD_bank.js)
+- [03.09.2023 => BD bank aggregation](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/03.09.2023/BD_bank_aggregation.js)
 
-- [02.23.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.23.2023/hw_transactions.js)
+- [03.02.2023 => BD bank](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/03.02.2023/BD_bank.js)
+
+- [02.23.2023 => transactions](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.23.2023/hw_transactions.js)
 
 - [02.16.2023](https://github.com/sl101/TEL-RAN_GT/tree/main/homeworks/02.16.2023/hw_chat.sql)
 
